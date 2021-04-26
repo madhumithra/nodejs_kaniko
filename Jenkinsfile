@@ -9,7 +9,7 @@ pipeline{
         stage('Build'){
             steps{
                 script{
-                    bat 'npm install'
+                    sh 'npm install'
                 }
             }
         }
@@ -34,8 +34,7 @@ pipeline{
             steps{
                  script 
                     {
-                        bat 'minikube start'
-                        bat 'kubectl apply -f deployment.yaml'
+                       sh 'kubectl apply -f deployment.yaml'
                         }
             }
         }
