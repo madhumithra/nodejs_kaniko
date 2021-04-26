@@ -25,8 +25,7 @@ pipeline{
    }
             steps{
                 script {
-                  sh 'docker run -p 8080:8080 --user root \
-     -v /var/run/docker.sock:/var/run/docker.sock jenkinsci/blueocean'
+                  sh 'docker start relaxed_lamport'
                   dockerImage = docker.build registry + ":latest"
                 }
              }
