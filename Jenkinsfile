@@ -9,7 +9,10 @@ pipeline{
     stages {
         stage('Build'){
             steps{
-              tool name: 'nodejs_happy'
+             tools {
+       // I hoped it would work with this command...
+       nodejs 'nodejs6'
+   }
                 script{
                   sh 'npm install'
                 }
