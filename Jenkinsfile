@@ -25,7 +25,7 @@ pipeline{
    }
             steps{
                 script {
-                  sh 'docker start relaxed_lamport'
+                  sh 'systemctl start docker'
                   dockerImage = docker.build registry + ":latest"
                 }
              }
