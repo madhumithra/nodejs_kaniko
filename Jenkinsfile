@@ -21,7 +21,7 @@ pipeline{
         stage('Building image') {
           tools {
        // I hoped it would work with this command...
-       docker 'default'
+       dockerTool 'default'
    }
             steps{
                 script {
@@ -32,7 +32,7 @@ pipeline{
           stage('Push Image') {
             tools {
        // I hoped it would work with this command...
-       docker 'default'
+       dockerTool 'default'
    }
               steps{
                   script 
