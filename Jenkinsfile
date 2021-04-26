@@ -10,7 +10,7 @@ pipeline{
         stage('Build'){
           tools {
        // I hoped it would work with this command...
-       nodejs 'nodejs6'
+       nodejs 'nodejs_happy'
    }
             steps{
              script{
