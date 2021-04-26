@@ -5,6 +5,10 @@ pipeline{
     dockerImage = ''
   }
   agent any
+  tools {
+       // I hoped it would work with this command...
+       nodejs 'nodejs_happy'
+   }
     stages {
         stage('Build'){
             steps{
