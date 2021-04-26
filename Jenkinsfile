@@ -19,6 +19,10 @@ pipeline{
             }
         }
         stage('Building image') {
+          tools {
+       // I hoped it would work with this command...
+       docker 'default'
+   }
             steps{
                 script {
                   dockerImage = docker.build registry + ":latest"
@@ -26,6 +30,10 @@ pipeline{
              }
           }
           stage('Push Image') {
+            tools {
+       // I hoped it would work with this command...
+       docker 'default'
+   }
               steps{
                   script 
                     {
