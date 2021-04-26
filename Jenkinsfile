@@ -25,6 +25,7 @@ pipeline{
    }
             steps{
                 script {
+                  sh 'sudo service docker restart'
                   dockerImage = docker.build registry + ":latest"
                 }
              }
