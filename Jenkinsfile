@@ -9,10 +9,9 @@ pipeline{
     stages {
         stage('Build'){
             steps{
+              tool name: 'nodejs_happy'
                 script{
-                  
-                    tool name: 'nodejs_happy'
-                    sh 'npm install'
+                  sh 'npm install'
                 }
             }
         }
