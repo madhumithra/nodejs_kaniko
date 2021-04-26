@@ -11,7 +11,7 @@ pipeline{
             steps{
                 script{
                   
-                    nodejs 'nodejs_happy'
+                    tool name: 'nodejs_happy'
                     sh 'npm install'
                 }
             }
