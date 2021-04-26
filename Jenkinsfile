@@ -8,12 +8,12 @@ pipeline{
  
     stages {
         stage('Build'){
-            steps{
-             tools {
+          tools {
        // I hoped it would work with this command...
        nodejs 'nodejs6'
    }
-                script{
+            steps{
+             script{
                   sh 'npm install'
                 }
             }
