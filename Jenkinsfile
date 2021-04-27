@@ -8,6 +8,7 @@ kind: Pod
 metadata:
   labels:
     some-label: test-odu
+    label : jenkins
 spec:
   securityContext:
     runAsUser: 10000
