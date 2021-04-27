@@ -86,9 +86,7 @@ INGRESS= "verizon-poc-1615357584710-f72ef11f3ab089a8c677044eb28292cd-0000.sjc03.
         REGISTRY_SECRET="odu-registry"
         DOCKER_IMAGE="lnk"
         DOCKER_TAG="$BUILD_NUMBER"
-        K8S_DEPLOYMENT="spring-java-test"
-        componentName = readMavenPom().getArtifactId()
-        componentVersion = readMavenPom().getVersion()
+       
   }
  
   stages {
@@ -136,42 +134,7 @@ INGRESS= "verizon-poc-1615357584710-f72ef11f3ab089a8c677044eb28292cd-0000.sjc03.
             }
         }		
 
-        stage('Deploy: To Openshift') {
-        steps {
-          container('openshift-cli') {
-	     withCredentials([
-	        usernamePassword(credentialsId: "${OPENSHIFT_CREDENTIAL_ID}", usernameVariable: 'REGISTRY_USERNAME', passwordVariable: 'TOKEN'),
-		      usernamePassword(credentialsId: "${DOCKER_CREDENTIAL_ID}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')
-	     ]) {
-              sh '''
-              oc login --server="${OPENSHIFT_URL}" --token="${TOKEN}"
-              oc project ${NAMESPACE}
-              pwd
-              ls -ltr
-              oc create secret docker-registry docker-repo-cred \
-              --docker-server=${DOCKER_URL} \
-              --docker-username=${DOCKER_USERNAME} \
-              --docker-password=${DOCKER_PASSWORD} \
-              --docker-email=${DOCKER_PASSWORD} \
-              --namespace=${NAMESPACE} \
-              || true
-              sed -e "s~{REGISTRY_NAME}~$DOCKER_URL~g" \
-                  -e "s~{DOCKER_IMAGE}~$DOCKER_IMAGE~g" \
-                  -e "s~{DOCKER_TAG}~$DOCKER_TAG~g" \
-                  -e "s~{K8S_DEPLOYMENT}~$componentName~g" \
-                  -e "s~{INGRESS_URL}~$INGRESS~g" -i devops/k8s/*.yml
-              oc apply -f devops/k8s/ --namespace="${NAMESPACE}" \
-              || true
-              oc create route edge --service=${componentName}-svc ||true
-              oc wait --for=condition=available --timeout=120s deployment/${componentName} --namespace="${NAMESPACE}" \
-              || true
-              '''
-	     }
-           }
-         }
-        }
-
-
+        
 
 
     }
