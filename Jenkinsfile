@@ -15,7 +15,7 @@ spec:
     runAsGroup: 10000
   containers:
   - name: jnlp
-    image: 'jenkins/jnlp-slave:4.3-4-alpine'
+    image: 'jenkins/jnlp-slave:4.3-4'
     args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
   - name: yair
     image: us.icr.io/dc-tools/security/yair:1
