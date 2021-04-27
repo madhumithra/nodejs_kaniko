@@ -97,7 +97,7 @@ INGRESS= "verizon-poc-1615357584710-f72ef11f3ab089a8c677044eb28292cd-0000.sjc03.
            }
             steps{
              script{
-                  sh 'npm install'
+                  sh 'sudo npm install'
                 }
             }
         }
