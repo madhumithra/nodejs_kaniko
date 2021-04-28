@@ -24,7 +24,7 @@ spec:
     tty: true
     imagePullPolicy: Always
   - name: kaniko
-    image: gcr.io/kaniko-project/executor:debug-1534f90c9330d40486136b2997e7972a79a69baf
+    image: gcr.io/kaniko-project/executor:51734fc3a33e04f113487853d118608ba6ff2b81
     imagePullPolicy: Always
     command:
     - cat
