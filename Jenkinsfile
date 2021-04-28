@@ -91,7 +91,7 @@ INGRESS= "verizon-poc-1615357584710-f72ef11f3ab089a8c677044eb28292cd-0000.sjc03.
  
   stages {
     
-      stage('Build'){
+     /* stage('Build'){
         tools {
            nodejs 'nodejs_happy'
            }
@@ -100,7 +100,7 @@ INGRESS= "verizon-poc-1615357584710-f72ef11f3ab089a8c677044eb28292cd-0000.sjc03.
                   sh 'sudo npm install'
                 }
             }
-        }
+        }*/
 
         stage ('Build: Docker') {
             steps {
