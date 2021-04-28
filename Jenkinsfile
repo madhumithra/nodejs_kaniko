@@ -106,7 +106,7 @@ INGRESS= "verizon-poc-1615357584710-f72ef11f3ab089a8c677044eb28292cd-0000.sjc03.
             steps {
                 container('kaniko') {
                     /* Kaniko uses secret 'regsecret' declared in the POD to authenticate to the registry and push the image */
-                    sh 'pwd && ls -l && df -h && cat /kaniko/.docker/config.json && /kaniko/executor -f `pwd`/Dockerfile --context `pwd` --insecure --skip-tls-verify --cache=true --destination=${REGISTRY_NAME}/${DOCKER_IMAGE}:${DOCKER_TAG}'
+                    sh 'pwd && ls -l && df -h && cat /kaniko/.docker/config.json && /kaniko/executor -f `pwd`/Dockerfile --context `pwd` --insecure --skip-tls-verify --cache=true --destination=madhupixiee/nodejs_helloworld:1.1'
                 }
             }
         }
