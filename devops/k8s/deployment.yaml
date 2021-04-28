@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {K8S_DEPLOYMENT}
+  labels:
+    app: {K8S_DEPLOYMENT}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {K8S_DEPLOYMENT}
+  template:
+    metadata:
+      labels:
+         app: {K8S_DEPLOYMENT}
+    spec:
+      containers:
+       - name: {K8S_DEPLOYMENT}
+         image: {REGISTRY_NAME}/{DOCKER_IMAGE}:{DOCKER_TAG}
+         imagePullPolicy: Always
+         ports:
+          - containerPort: 8080
+# Set the resources based on the application requirement
+#         resources:
+#           limits:
+#             memory: 32Mi
+#             cpu: 125m
+#           requests:
+#             memory: 32Mi
+#             cpu: 125m
+      imagePullSecrets:
+       - name: docker-repo-cred
