@@ -64,7 +64,7 @@ spec:
 	
 	DOCKER_URL= "us.icr.io/dc-tools"
 DOCKER_CREDENTIAL_ID= "dc-docker-6110"
-OPENSHIFT_URL= "https://c103-e.us-south.containers.cloud.ibm.com:32634"
+OPENSHIFT_URL= "https://c100-e.us-south.containers.cloud.ibm.com:32634/"
 OPENSHIFT_CREDENTIAL_ID= "dc-openshift-6110"
 SONARQUBE_URL= "https://sonarqube-3-6.container-crush-02-4044f3a4e314f4bcb433696c70d13be9-0000.eu-de.containers.appdomain.cloud/"
 SONARQUBE_CREDENTIAL_ID= "dc-sonarqube-6110"
