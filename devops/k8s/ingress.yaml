@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {K8S_DEPLOYMENT}
+  labels:
+    app: {K8S_DEPLOYMENT}
+spec:
+  rules:
+  - host: {K8S_DEPLOYMENT}.{INGRESS_URL}
+    http:
+      paths:
+      - backend:
+          serviceName: {K8S_DEPLOYMENT}-svc
+          servicePort: 80
+# Replace the below secret with the name of the TLS secret defied for your cluster
+#  tls:
+#  - hosts:
+#    - {K8S_DEPLOYMENT}.{INGRESS_URL}
+#    secretName: cluster-ingress-secret
